@@ -12,10 +12,12 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Base color for light mode */
         body {
             background-color: #f4f4f9;
             color: #1f2937;
         }
+        /* Colors for dark mode */
         .dark body {
             background-color: #1a202c;
             color: #e2e8f0;
@@ -27,32 +29,212 @@
 </head>
 <body class="transition-colors duration-500">
     <canvas id="background" class="fixed inset-0 -z-10"></canvas>
+    <div class="fixed top-4 right-4 z-50 flex space-x-2">
+        <button id="lang-toggle" class="p-2 rounded-full shadow-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold transition-transform hover:scale-110">
+            ES
+        </button>
+        <button id="theme-toggle" class="p-2 rounded-full shadow-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-transform hover:scale-110">
+            <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+        </button>
+    </div>
 
     <div class="max-w-4xl mx-auto p-6 md:p-10 bg-white dark:bg-gray-800 rounded-2xl shadow-xl mt-8 mb-8 transition-colors duration-500">
+        
         <header class="text-center pb-8 border-b-2 border-gray-200 dark:border-gray-700">
-            <h1 class="text-4xl md:text-5xl font-bold text-cerulean-blue mb-2">Juan Vicente Sanchis Hermita</h1>
-            <p id="location-text" class="text-lg text-gray-600 dark:text-gray-400 mb-2">
-                Alzira, Valencia · <a href="mailto:jsanchishermita@gmail.com" class="text-cerulean-blue hover:underline">jsanchishermita@gmail.com</a> · +34 722 78 12 56
-            </p>
+            <h1 class="text-4xl md:text-5xl font-bold text-cerulean-blue mb-2 transition-colors duration-500">Juan Vicente Sanchis Hermita</h1>
+            <p id="location-text" class="text-lg text-gray-600 dark:text-gray-400 mb-2">Alzira, Valencia · <a href="mailto:jsanchishermita@gmail.com" class="text-cerulean-blue hover:underline">jsanchishermita@gmail.com</a> · +34 722 78 12 56</p>
+            <div class="flex justify-center space-x-4 text-gray-600 dark:text-gray-400">
+                <a href="https://www.linkedin.com/in/jsanchishermita" target="_blank" rel="noopener noreferrer" class="text-cerulean-blue hover:underline">LinkedIn</a>
+                <a href="https://github.com/JotaSanHe" target="_blank" rel="noopener noreferrer" class="text-cerulean-blue hover:underline">GitHub</a>
+            </div>
         </header>
 
         <div class="grid md:grid-cols-3 gap-8 mt-8">
             <aside class="md:col-span-1 space-y-8">
+                <section class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-inner transition-colors duration-500">
+                    <h2 id="profile-title" class="text-2xl font-bold border-b-2 border-cerulean-blue pb-2 mb-4 text-gray-800 dark:text-gray-200">Perfil</h2>
+                    <p id="profile-description" class="text-gray-700 dark:text-gray-300 leading-relaxed">Técnico informático y desarrollador de aplicaciones web con conocimientos en redes y ciberseguridad. Experiencia en soporte a usuarios, mantenimiento de sistemas, resolución de incidencias y trabajo en entornos internacionales.</p>
+                </section>
+                
+                <section class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-inner transition-colors duration-500">
+                    <h2 id="skills-title" class="text-2xl font-bold border-b-2 border-cerulean-blue pb-2 mb-4 text-gray-800 dark:text-gray-200">Skills</h2>
+                    <ul id="skills-list" class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                        <li>Soporte técnico y atención al cliente</li>
+                        <li>Administración y monitorización de redes</li>
+                        <li>Mantenimiento de hardware y software</li>
+                        <li>Herramientas de ticketing: Remedy, Jira</li>
+                        <li>Programación y desarrollo web</li>
+                        <li>Idiomas: Español, Valenciano (nativo), Inglés (fluido)</li>
+                    </ul>
+                </section>
+                
+                <section class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-inner transition-colors duration-500">
+                    <h2 id="education-title" class="text-2xl font-bold border-b-2 border-cerulean-blue pb-2 mb-4 text-gray-800 dark:text-gray-200">Educación</h2>
+                    <div id="education-list" class="space-y-4">
+                        <div class="edu">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">CFGS – Desarrollo de Aplicaciones Web</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Finalizado 2024</p>
+                        </div>
+                        <div class="edu">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">CFGM – Sistemas Microinformáticos y Redes</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+                        </div>
+                        <div class="edu">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">IFCT103 – Ciberseguridad: Prevención, Análisis y Respuesta a Incidentes</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">2025</p>
+                        </div>
+                    </div>
+                </section>
             </aside>
 
             <section class="md:col-span-2 space-y-8">
-                <h2 id="experience-title" class="text-2xl font-bold border-b-2 border-cerulean-blue pb-2 text-gray-800 dark:text-gray-200">
-                    Experiencia Profesional
-                </h2>
+                <h2 id="experience-title" class="text-2xl font-bold border-b-2 border-cerulean-blue pb-2 text-gray-800 dark:text-gray-200">Experiencia Profesional</h2>
 
+                <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">United Nations – Network Equipment Support (WAN Team)</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dic 2025 – Actualidad</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                        <li>Soporte de nivel 3 en infraestructura WAN global.</li>
+                        <li>Diagnóstico y resolución de incidencias complejas de red.</li>
+                        <li>Interacción directa con vendors para escalado y resolución de problemas.</li>
+                        <li>Análisis de incidencias fuera del alcance de niveles N1/N2.</li>
+                        <li>Trabajo en entorno internacional y de alta criticidad.</li>
+                    </ul>
+                </div>
+                
                 <div id="experience-list" class="space-y-6">
                     <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                            United Nations – Network Equipment Support (WAN Team)
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            Dic 2025 – Actualidad
-                        </p>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – Técnico de redes N1</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Abr 2022 – Actualidad</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Mantenimiento y resolución de incidencias con atención directa al cliente.</li>
+                            <li>Uso de herramientas de ticketing como Remedy y Jira.</li>
+                            <li>Responsable suplente del ingeniero de proyecto.</li>
+                            <li>Tratamiento de incidencias internacionales y protocolos de resolución.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – Técnico de redes N2</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Jul 2022 – Nov 2022</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Configuración de routers según solicitudes del cliente.</li>
+                            <li>Monitorización en vivo de la red completa.</li>
+                            <li>Mantenimiento preventivo y análisis de registros para detección de problemas.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Suprasoft – Técnico informático</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">2021</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Reparación, actualización y resolución de incidencias en equipos.</li>
+                            <li>Soporte a empresas y despliegue de nuevos sistemas.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – House of Computers, Londres</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Mar 2015 – May 2015</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Mantenimiento y reparación de hardware y software.</li>
+                            <li>Instalación y configuración de sistemas.</li>
+                            <li>Atención técnica en inglés a clientes.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – E-Computing, Londres</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Abr 2017 – Jun 2017</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Diagnóstico y reparación de equipos informáticos.</li>
+                            <li>Configuración de redes y soporte a oficinas.</li>
+                            <li>Trabajo en entorno multicultural.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 text-gray-600 dark:text-gray-400 text-sm mt-4">
+        <p id="footer-text">© 2025 Juan Vicente Sanchis Hermita</p>
+    </footer>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cerulean-blue': '#007BA7',
+                    }
+                }
+            }
+        };
+
+        // --- Lógica del modo oscuro ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        const preferredTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(preferredTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(currentTheme);
+        });
+
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = 'en';
+
+        const translations = {
+            'es': {
+                location: 'Alzira, Valencia · jsanchishermita@gmail.com · +34 722 78 12 56',
+                profileTitle: 'Perfil',
+                profileDescription: 'Técnico informático y desarrollador de aplicaciones web con conocimientos en redes y ciberseguridad. Experiencia en soporte a usuarios, mantenimiento de sistemas, resolución de incidencias y trabajo en entornos internacionales.',
+                skillsTitle: 'Skills',
+                skillsList: `<li>Soporte técnico y atención al cliente</li>
+                           <li>Administración y monitorización de redes</li>
+                           <li>Mantenimiento de hardware y software</li>
+                           <li>Herramientas de ticketing: Remedy, Jira</li>
+                           <li>Programación y desarrollo web</li>
+                           <li>Idiomas: Español, Valenciano (nativo), Inglés (fluido)</li>`,
+                educationTitle: 'Educación',
+                educationList: `
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">CFGS – Desarrollo de Aplicaciones Web</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Finalizado 2024</p>
+                    </div>
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">CFGM – Sistemas Microinformáticos y Redes</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+                    </div>
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">IFCT103 – Ciberseguridad: Prevención, Análisis y Respuesta a Incidentes</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">2025</p>
+                    </div>
+                `,
+                experienceTitle: 'Experiencia Profesional',
+                experienceList: `
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">United Nations – Network Equipment Support (WAN Team)</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dic 2025 – Actualidad</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Soporte de nivel 3 en infraestructura WAN global.</li>
                             <li>Diagnóstico y resolución de incidencias complejas de red.</li>
@@ -62,12 +244,8 @@
                         </ul>
                     </div>
                     <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                            Inelcom – Técnico de redes N1
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            Abr 2022 – Dic 2025
-                        </p>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – Técnico de redes N1</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Abr 2022 – Actualidad</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Mantenimiento y resolución de incidencias con atención directa al cliente.</li>
                             <li>Uso de herramientas de ticketing como Remedy y Jira.</li>
@@ -75,36 +253,241 @@
                             <li>Tratamiento de incidencias internacionales y protocolos de resolución.</li>
                         </ul>
                     </div>
-
                     <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                            Inelcom – Técnico de redes N2
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            Jul 2022 – Nov 2022
-                        </p>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – Técnico de redes N2</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Jul 2022 – Nov 2022</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Configuración de routers según solicitudes del cliente.</li>
                             <li>Monitorización en vivo de la red completa.</li>
                             <li>Mantenimiento preventivo y análisis de registros para detección de problemas.</li>
                         </ul>
                     </div>
-
                     <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                            Suprasoft – Técnico informático
-                        </h3>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Suprasoft – Técnico informático</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">2021</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Reparación, actualización y resolución de incidencias en equipos.</li>
                             <li>Soporte a empresas y despliegue de nuevos sistemas.</li>
                         </ul>
                     </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – House of Computers, Londres</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Mar 2015 – May 2015</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Mantenimiento y reparación de hardware y software.</li>
+                            <li>Instalación y configuración de sistemas.</li>
+                            <li>Atención técnica en inglés a clientes.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – E-Computing, Londres</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Abr 2017 – Jun 2017</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Diagnóstico y reparación de equipos informáticos.</li>
+                            <li>Configuración de redes y soporte a oficinas.</li>
+                            <li>Trabajo en entorno multicultural.</li>
+                        </ul>
+                    </div>
+                `,
+                footerText: '© 2025 Juan Vicente Sanchis Hermita',
+            },
+            'en': {
+                location: 'Alzira, Valencia · jsanchishermita@gmail.com · +34 722 78 12 56',
+                profileTitle: 'Profile',
+                profileDescription: 'IT Technician and Web Developer with knowledge in networking and cybersecurity. Experienced in user support, systems maintenance, incident resolution, and working in international environments.',
+                skillsTitle: 'Skills',
+                skillsList: `<li>Technical support and customer service</li>
+                           <li>Network administration and monitoring</li>
+                           <li>Hardware and software maintenance</li>
+                           <li>Ticketing tools: Remedy, Jira</li>
+                           <li>Programming and web development</li>
+                           <li>Languages: Spanish, Valencian (native), English (fluent)</li>`,
+                educationTitle: 'Education',
+                educationList: `
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Advanced Vocational Training – Web Application Development</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Completed 2024</p>
+                    </div>
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Vocational Training – Computer Systems and Networks</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+                    </div>
+                    <div class="edu">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">IFCT103 – Cybersecurity: Prevention, Analysis, and Incident Response</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">2025</p>
+                    </div>
+                `,
+                experienceTitle: 'Professional Experience',
+                experienceList: `
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">United Nations – Network Equipment Support (WAN Team)</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dec 2025 – Present</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Level 3 support on global WAN infrastructure.</li>
+                            <li>Diagnosis and resolution of complex network incidents.</li>
+                            <li>Direct interaction with vendors for escalation and problem resolution.</li>
+                            <li>Analysis of incidents beyond N1/N2 scope.</li>
+                            <li>Work in an international and high-criticality environment.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – N1 Network Technician</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Apr 2022 – Present</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Maintenance and incident resolution with direct client support.</li>
+                            <li>Use of ticketing tools such as Remedy and Jira.</li>
+                            <li>Backup Project Engineer.</li>
+                            <li>International incident management and resolution protocols.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Inelcom – N2 Network Technician</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Jul 2022 – Nov 2022</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Router configuration based on client requests.</li>
+                            <li>Live monitoring of the entire network.</li>
+                            <li>Preventive maintenance and log analysis for problem detection.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Suprasoft – IT Technician</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">2021</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Repair, update, and incident resolution on equipment.</li>
+                            <li>Corporate support and deployment of new systems.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – House of Computers, London</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Mar 2015 – May 2015</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Hardware and software maintenance and repair.</li>
+                            <li>System installation and configuration.</li>
+                            <li>Technical support to clients in English.</li>
+                        </ul>
+                    </div>
+                    <div class="job p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow transition-colors duration-500">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Erasmus+ – E-Computing, London</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Apr 2017 – Jun 2017</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                            <li>Diagnosis and repair of computer equipment.</li>
+                            <li>Network configuration and office support.</li>
+                            <li>Work in a multicultural environment.</li>
+                        </ul>
+                    </div>
+                `,
+                footerText: '© 2025 Juan Vicente Sanchis Hermita',
+            }
+        };
 
-                </div>
-            </section>
-        </div>
-    </div>
+        const elementsToUpdate = {
+            'location': 'location-text',
+            'profileTitle': 'profile-title',
+            'profileDescription': 'profile-description',
+            'skillsTitle': 'skills-title',
+            'skillsList': 'skills-list',
+            'educationTitle': 'education-title',
+            'educationList': 'education-list',
+            'experienceTitle': 'experience-title',
+            'experienceList': 'experience-list',
+            'footerText': 'footer-text'
+        };
+
+        function updateContent(lang) {
+            document.documentElement.lang = lang; // Actualiza el atributo lang
+            for (const key in elementsToUpdate) {
+                const element = document.getElementById(elementsToUpdate[key]);
+                if (element) {
+                    if (key === 'location') {
+                        const emailLink = element.querySelector('a');
+                        element.textContent = translations[lang][key];
+                        if (emailLink) {
+                            element.appendChild(emailLink);
+                        }
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            }
+        }
+        
+        function updateLangButton() {
+            langToggleBtn.textContent = currentLang === 'en' ? 'ES' : 'EN';
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            updateContent(currentLang);
+            updateLangButton();
+        });
+
+        updateContent(currentLang);
+        updateLangButton();
+
+        const canvas = document.getElementById("background");
+        const ctx = canvas.getContext("2d");
+
+        function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = 2;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = "#007BA7";
+                ctx.fill();
+            }
+        }
+
+        const particles = Array.from({ length: 80 }, () => new Particle());
+
+        function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        // Líneas entre partículas cercanas
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.strokeStyle = `rgba(50,173,217,${1 - dist / 120})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
-</html>
+<script>
 
+</script>
+
+</html>
